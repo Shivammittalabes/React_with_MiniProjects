@@ -1,1 +1,1 @@
-Hey My name is Shivam Mittal, I am learning React under the supervision of Hitesh Sir
+Hey My name is Shivam Mittal, I am learning React under the supervision of Hitesh Sir.
