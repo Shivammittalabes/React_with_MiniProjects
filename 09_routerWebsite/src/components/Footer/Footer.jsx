@@ -73,7 +73,7 @@ export default function Footer() {
                     <span className="text-sm text-gray-500 sm:text-center">
                         © 2024
                         <a href="https://hiteshchoudhary.com/" className="hover:underline">
-                            shivammittal
+                            ShivamMittal
                         </a>
                         . All Rights Reserved.
                     </span>
