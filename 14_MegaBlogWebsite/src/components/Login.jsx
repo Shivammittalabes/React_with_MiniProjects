@@ -60,7 +60,7 @@ function Login() {
 
         { error && <p className='text-red-500 text-center'>{error}</p> }
 
-        // if error is true then show this paragraph.
+        {/* if error is true then show this paragraph. */}
 
         <form onSubmit={handleSubmit(login)} 
         className='mt-8'>
