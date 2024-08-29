@@ -1,4 +1,4 @@
-import config from '../config/config'
+import config from '../config/config.js'
 
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
@@ -11,23 +11,23 @@ export class Service{
         this.client
             .setEndpoint(config.appwriteUrl)
             .setProject(config.appwriteProjectId);
-        this.databases = new Databases(this.client);
-        this.bucket = new Storage(this.client);
+            this.databases = new Databases(this.client);
+            this.bucket = new Storage(this.client);
     }
 
-    async createPost({Title, Slug, Content, FeaturedImage, Status, UserId }) {
+    async createPost({title, slug, content, featuredImage, status, userId }) {
 
         try {
            return await this.databases.createDocument(
             config.appwriteDatabaseId,
             config.appwriteCollectionId,
-            Slug,
+            slug,
             {
-                Title,
-                Content,
-                FeaturedImage,
-                Status,
-                UserId,
+                title,
+                content,
+                featuredImage,
+                status,
+                userId,
             }
            ) 
         } catch (error) {
@@ -35,18 +35,18 @@ export class Service{
         }
     } 
 
-    async updatePost(Slug, {Title, Content, FeaturedImage, Status}) {
+    async updatePost(slug, {title, content, featuredImage, status}) {
 
         try {
             return await this.databases.updateDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                Slug,
+                slug,
                 {
-                   Title,
-                   Content,
-                   FeaturedImage,
-                   Status, 
+                   title,
+                   content,
+                   featuredImage,
+                   status, 
                 }
             )
         } catch (error) {
@@ -54,13 +54,13 @@ export class Service{
         }
     }
 
-    async deletePost(Slug) {
+    async deletePost(slug) {
 
         try {
             await this.databases.deleteDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                Slug,
+                slug,
                 
             )  
 
@@ -73,13 +73,13 @@ export class Service{
         }
     }
 
-    async getPost(Slug){
+    async getPost(slug){
 
         try {
             return await this.databases.getDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                Slug,
+                slug,
             )
         } catch (error) {
             console.log("Appwrite service :: getPost :: error", error);
@@ -139,7 +139,7 @@ export class Service{
     }
 }
 
-const service = new Service()  // for accessing the direct values
+const service = new Service()
 
 export default service
 
