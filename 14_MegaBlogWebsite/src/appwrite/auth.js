@@ -4,11 +4,11 @@ import { Client,Account,ID } from "appwrite";
 
 export class AuthService{
 
-    client = new Client(); 
+    client; 
     account;
 
     constructor() {
-        this.client
+        this.client = new Client()
             .setEndpoint(config.appwriteUrl)
             .setProject(config.appwriteProjectId);
         this.account = new Account(this.client);  
@@ -36,7 +36,7 @@ export class AuthService{
     async login({email, password}){
 
         try {
-            return await this.account.createEmailSession(email, password);
+            return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
             throw error;
         }
