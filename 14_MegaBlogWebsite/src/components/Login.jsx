@@ -18,7 +18,6 @@ function Login() {
 
         try {
             const session = await authService.login(data)
-
             if (session) {
                 const userData = await authService.getCurrentUser()
 
