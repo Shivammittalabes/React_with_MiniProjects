@@ -3,16 +3,17 @@ import config from '../config/config.js'
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
 export class Service{
-    client = new Client();
+
+    client;
     databases;
     bucket;
 
     constructor(){
-        this.client
+        this.client = new Client()
             .setEndpoint(config.appwriteUrl)
             .setProject(config.appwriteProjectId);
-            this.databases = new Databases(this.client);
-            this.bucket = new Storage(this.client);
+        this.databases = new Databases(this.client);
+        this.bucket = new Storage(this.client);
     }
 
     async createPost({title, slug, content, featuredImage, status, userId }) {
@@ -131,7 +132,7 @@ export class Service{
         }
     }
 
-    getFileReview(fileId){
+    getFilePreview(fileId){
         return this.bucket.getFilePreview(
             config.appwriteBucketId,
             fileId
