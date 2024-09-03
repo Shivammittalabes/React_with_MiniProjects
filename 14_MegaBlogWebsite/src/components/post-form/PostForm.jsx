@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { Button, Input, RTE, Select } from '../index'
+import { Button, Input, RTE, Select } from '../index.js'
 import appwriteService from '../../appwrite/conf'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -128,7 +128,8 @@ export default function PostForm({ post }) {
                 {...register("status", { required: true })}
             />
 
-            <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+            <Button type="submit" bgColor={post ? "bg-green-500" : undefined} 
+            className="w-full">
                 {post ? "Update" : "Submit"}
             </Button>
 
