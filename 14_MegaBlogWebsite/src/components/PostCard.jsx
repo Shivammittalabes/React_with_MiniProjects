@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom'
 function PostCard({$id, title, featuredImage}) {
   return (
 
-     // here href = to={}
+    //  here href = to={}
 
     <Link to={`/post/${$id}`}> 
     
-     // internal dollar is for syntax
+     {/* internal dollar is for syntax */}
 
         <div className='w-full bg-gray-100 rounded-xl p-4 '>
             <div className='w-full justify-center mb-4'>

@@ -5,7 +5,7 @@ import { Container, PostCard } from "../components"
 function Home() {
     const [posts, setPosts] = useState([])
 
-    useEffect( () => {
+    useEffect(() => {
         appwriteServices.getPosts().then((posts) => {
             if(posts){
                 setPosts(posts.documents)
@@ -20,7 +20,7 @@ function Home() {
                     <div className='flex flex-wrap'>
                         <div className='p-24 w-full'>
                             <h1 className='text-2xl font-bold hover:text-gray-500'>
-                                Login to read posts.
+                                Login to Read Posts.
                             </h1>
                         </div>
                     </div>
@@ -33,9 +33,9 @@ function Home() {
         <div className='w-full py-8'>
             <Container>
                 <div className='flex flex-wrap'>
-                    {posts.map((posts) => (
-                        <div key={posts.$id} className='p-2 w-1/4'>
-                            <PostCard {...posts} />
+                    {posts.map((post) => (
+                        <div key={post.$id} className='p-2 w-1/4'>
+                            <PostCard {...post} />
                         </div>
                     ))}
                 </div>

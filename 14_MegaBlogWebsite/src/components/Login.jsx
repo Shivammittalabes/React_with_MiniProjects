@@ -21,7 +21,7 @@ function Login() {
             if (session) {
                 const userData = await authService.getCurrentUser()
 
-                if(userData) dispatch (authLogin(userData));
+                if(userData) dispatch(authLogin(userData));
                 navigate("/")
                 
             }
@@ -52,12 +52,12 @@ function Login() {
                 to='/signup'
                 className='font-medium text-primary transtion-all duration-200 hover:underline'
             >
-                Sign Up to your Account
+                Sign Up
             </Link>
 
         </p>
 
-        { error && <p className='text-red-500 text-center'>{error}</p> }
+        {error && <p className='text-red-500 text-center'>{error}</p>}
 
         {/* if error is true then show this paragraph. */}
 

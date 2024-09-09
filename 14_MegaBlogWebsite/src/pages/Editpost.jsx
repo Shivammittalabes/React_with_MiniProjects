@@ -11,19 +11,17 @@ function Editpost() {
     const navigate = useNavigate();
     
     // if change in slug received datavalue by useEffect (jb bhi slug chng ho datavalue lekr aoo )
-    useEffect( () => {
-
+    useEffect(() => {
         if (slug) {
-            appwriteService.getPost(slug).then( (post) => {
-
+            appwriteService.getPost(slug).then((post) => {
                 if (post) {
                     setPosts(post)
                 }
-
             })
+        } else {
+            navigate('/')
         }
-
-    } , [slug, navigate])
+    }, [slug, navigate])
 
   return post ? (
     <div className='py-8'>
