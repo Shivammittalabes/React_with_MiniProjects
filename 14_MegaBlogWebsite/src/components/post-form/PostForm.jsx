@@ -90,7 +90,7 @@ export default function PostForm({ post }) {
                 placeholder="Slug"
                 className="mb-4"
                 {...register("slug", { required: true })}
-                onChange={(e) => {
+                onInput={(e) => {
                     setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                 }}
             />
